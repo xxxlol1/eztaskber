@@ -1,0 +1,203 @@
+@api = http://localhost:3000/MASTER_CARD
+
+## get user
+POST http://localhost:3000/api/MASTER_CARD/User
+Content-Type: application/json
+
+{  "id":1,
+   "nombre": "temp2",
+   "contraseña": "1234567",
+   "quantity": 100
+}
+
+
+### get card
+{{api}}/Card/1234567890123456
+
+### get Emisor
+POST http://localhost:3000/api/MASTER_CARD/Emisor
+Content-Type: application/json
+
+{  "id":1,
+   "nombre": "The_end",
+   "contraseña": "1234567",
+   "quantity": 100
+}
+
+### get Store
+{{api}}/Store/1
+
+### get card by user
+{{api}}/Card/User/1
+### get Pago por numero de targeta
+{{api}}/Pago/1234567890123456
+
+### get Transaccion por numero de targeta
+{{api}}/Transaccion/1234987612349876
+
+### add a user
+POST http://localhost:3000/api/MASTER_CARD
+Content-Type: application/json
+
+{
+   "nombre": "temp2",
+   "contraseña": "1234567",
+   "quantity": 100
+}
+
+### add a emisor
+POST http://localhost:3000/api/MASTER_CARD/Emisor
+Content-Type: application/json
+
+{
+   "nombre": "The_end",
+   "contraseña": "1234567",
+   "quantity": 100
+}
+
+### add a card
+POST http://localhost:3000/api/MASTER_CARD/addCard
+Content-Type: application/json
+
+{
+   "numero": "1234987612349876", 
+   "nombre_titular": "JUANPEREZ", 
+    "fecha": "2021-12-31", 
+    "numero_seguridad": "123", 
+    "monto_autorizado":10000, 
+    "monto_disponible": 10000, 
+    "id_u":1, 
+    "id_e":1,
+   "quantity": 100
+}
+
+### add store
+POST http://localhost:3000/api/MASTER_CARD/addStore
+Content-Type: application/json
+
+{
+   "nombre": "Nitro5", 
+   "quantity": 100
+}
+
+### add Transaccion 
+POST http://localhost:3000/api/MASTER_CARD/Transaccion
+Content-Type: application/json
+
+{
+   "cod_auto": 123435,
+   "monto": 100, 
+   "fecha_trans": "2021-09-10", 
+   "numero": "1234567890123456", 
+   "id_t": 1, 
+   "quantity": 100
+}
+
+### add pago
+POST http://localhost:3000/api/MASTER_CARD/Pago
+Content-Type: application/json
+
+{
+   "cod_auto": 123435,
+   "monto": 100, 
+   "numero_tarjeta":"1234567890123456",
+   "fecha_trans": "2021-09-10", 
+   "numero": "1234567890123456", 
+   "quantity": 100
+}
+
+### dell CARD
+DELETE {{api}}/Card/1234567890123477
+### DEL Store
+DELETE {{api}}/Store/2
+### Del pago
+DELETE  {{api}}/Pago/123345
+### Del Transaccion
+DELETE  {{api}}/Transaccion/123435
+
+### update Card
+PUT {{api}}/Card/1234567890123477
+Content-Type: application/json
+
+{
+   "nombre_titular":"nombre_titular",
+   "fecha":"2021-09-31",
+   "numero_seguridad":"123",
+   "monto_autorizado": 100,
+   "monto_disponible":100,
+   "quantity": 20
+}
+### update Store
+PUT {{api}}/Store/3
+Content-Type: application/json
+
+{
+   "nombre":"Eliminar jajaj",
+   "quantity": 20
+}
+
+### prueba de recibir.
+
+http://localhost:3000/autorizacion?tarjeta=1234987612349876&nombre=JUANPEREZ&fecha_venc=202112&num_seguridad=123&monto=100&tienda=Jingle&formato=JSON
+
+
+
+//http://266f-181-209-144-220.ngrok.io/autorizacion?tarjeta=1234987612349876&nombre=JUANPEREZ&fecha_venc=202112&num_seguridad=123&monto=100&tienda=Jingle&formato=JSON
+
+### crear pago.
+post {{api}}/addPago
+Content-Type: application/json
+
+{
+   "numero":"1234987612349876",
+   "nombre": "JUANPEREZ",
+   "fecha": "2021-12-31",
+   "seg": 123,
+   "monto":1000
+}
+
+### prueba de agregado de usuario
+post http://localhost:3000/api/User/addUser
+Content-Type:  application/json
+
+{
+   "nombre": "nom",
+   "telefono": 12345678 ,
+   "email": "19002145@galileo.edu",
+   "contraseña": "1234567"
+}
+
+### agregado de Lugar
+POST http://localhost:3000/api/Lugar/addLugar
+Content-Type: application/json
+
+{
+   "zona": 25
+}
+
+### agragado de Servicios
+POST http://localhost:3000/api/Service/addService
+Content-Type: application/json
+
+{
+   "servicio": "Empleada/Muchacha",
+   "descripcion": "Profecional que tiene por oficio la limpiesa de la casa"
+
+
+}
+
+
+### peticion
+post  http://localhost:3000/api/Peticion/addPeticion
+Content-Type: application/json
+
+{
+   "id_u":1,
+   "id_t":3,
+   "id_s":1,
+   "nombre":"ok",
+   "descripcion":"okooo",
+   "lugar":"no",
+   "telefono_u": 12345678
+
+}
